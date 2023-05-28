@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "appointer-177e6": {
+      "hosting": {
+        "app": [
+          "appointer-177e6"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "appointer-177e6"
+  }
+}
