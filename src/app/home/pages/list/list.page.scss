@@ -1,0 +1,24 @@
+ion-header {
+  background: linear-gradient(
+    90deg,
+    var(--ion-color-primary) 10%,
+    var(--ion-color-secondary) 100%
+  );
+  border-radius: 0 0 2rem 2rem;
+  padding-top: 1rem;
+  height: 10vh;
+  ion-item {
+    --background: transparent;
+    ion-avatar {
+      background: white;
+    }
+  }
+}
+
+ion-list {
+  transform: translateY(5vh);
+
+  ion-label {
+    background-color: aqua;
+  }
+}

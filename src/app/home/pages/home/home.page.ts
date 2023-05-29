@@ -12,13 +12,13 @@ export class HomePage implements OnInit {
       id: 1,
       name: 'Randevular',
       src: 'assets/icon/list.png',
-      page: '',
+      page: 'list',
     },
     {
       id: 2,
       name: 'Yeni Randevu',
       src: 'assets/icon/add.png',
-      page: '',
+      page: 'add',
     },
   ];
 

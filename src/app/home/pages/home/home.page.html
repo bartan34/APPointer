@@ -36,7 +36,7 @@
 
     <ion-row class="ion-margin-horizontal ion-margin-top">
       <ion-col *ngFor="let item of features" size="12">
-        <ion-card class="ion-text-center">
+        <ion-card class="ion-text-center" [routerLink]="[item.page]">
           <ion-card-header>
             <div class="content">
               <ion-thumbnail [style.background]="item?.background">
