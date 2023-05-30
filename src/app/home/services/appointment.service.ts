@@ -11,6 +11,7 @@ import {
   onValue,
   ref,
 } from '@angular/fire/database';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -25,28 +26,23 @@ export class AppointmentService {
   //   return this.ref;
   // }
 
-  constructor(public database: Database) {}
+  private data$ = new BehaviorSubject<any>(null);
+
+  constructor(public database: Database) {
+    this.getRecrods();
+  }
+
+  getRecords$() {
+    return this.data$.asObservable();
+  }
 
   getRecrods() {
-    // const dbRef = ref(this.database);
-    // get(child(dbRef, `records`))
-    //   .then((snapshot) => {
-    //     if (snapshot.exists()) {
-    //       console.log(snapshot.val());
-    //     } else {
-    //       console.log('No data available');
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
-
     const db = getDatabase();
 
     const starCountRef = ref(db, 'records');
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
-      console.log(data);
+      this.data$.next(data);
     });
   }
 

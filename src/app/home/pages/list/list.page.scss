@@ -17,8 +17,30 @@ ion-header {
 
 ion-list {
   transform: translateY(5vh);
+}
 
-  ion-label {
-    background-color: aqua;
+ion-card {
+  background-color: rgb(40, 39, 39);
+  border-radius: 2rem;
+
+  .date {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+  }
+
+  ion-card-header {
+    padding-bottom: 0 !important;
+  }
+
+  ion-icon {
+    font-size: 2rem;
+    color: var(--ion-color-secondary);
+  }
+
+  h4 {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
   }
 }

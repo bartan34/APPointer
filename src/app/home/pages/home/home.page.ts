@@ -22,22 +22,9 @@ export class HomePage implements OnInit {
     },
   ];
 
-  transactions: any[] = [
-    {
-      id: 1,
-      vendor: 'Received from PhonePe',
-      image: '',
-      amount: 1500,
-      time: '3:00PM',
-    },
-    { id: 2, vendor: 'Flaticons', image: '', amount: -1200, time: '4:00PM' },
-  ];
-
   constructor(private appService: AppointmentService) {}
 
   ngOnInit(): void {
-    // this.appService.getAllRecords();
     this.appService.getRecrods();
-    // this.appService.getRecord('1');
   }
 }

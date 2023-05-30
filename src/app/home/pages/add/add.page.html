@@ -1,0 +1,64 @@
+<ion-header class="ion-no-border">
+  <ion-item lines="none">
+    <ion-button fill="clear" slot="start" color="light" (click)="goBack()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-avatar slot="end">
+      <img src="assets/icon/woman.png" />
+    </ion-avatar>
+  </ion-item>
+</ion-header>
+
+<ion-content
+  [fullscreen]="true"
+  *ngIf="form
+"
+>
+  <form
+    [formGroup]="form
+  "
+  >
+    <ion-input
+      label="Ad"
+      label-placement="floating"
+      fill="outline"
+      formControlName="name"
+    ></ion-input>
+    <ion-input
+      label="Soyad"
+      label-placement="floating"
+      fill="outline"
+      ü
+      formControlName="lastname"
+    ></ion-input>
+    <ion-item>
+      <ion-label>Pick date</ion-label>
+      <ion-input
+        value="{{ form.get('date').value | date: 'dd.MM.yyyy | HH:mm' }}"
+        id="date"
+        class="ion-text-end"
+        fill="outline"
+      ></ion-input>
+      <ion-popover trigger="date" size="auto">
+        <ng-template>
+          <ion-datetime formControlName="date"></ion-datetime>
+        </ng-template>
+      </ion-popover>
+    </ion-item>
+    <ion-list>
+      <ion-item>
+        <ion-select
+          aria-label="Fruit"
+          placeholder="Select all fruits that apply"
+          [multiple]="true"
+          formControlName="services"
+        >
+          <ion-select-option value="apples">Apples</ion-select-option>
+          <ion-select-option value="oranges">Oranges</ion-select-option>
+          <ion-select-option value="bananas">Bananas</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="onSubmit()">Gönder</ion-button>
+  </form>
+</ion-content>
