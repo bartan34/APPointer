@@ -9,11 +9,14 @@
   </ion-item>
 </ion-header>
 
-<ion-content [fullscreen]="true" *ngIf="list.length > 0">
-  <ng-container *ngFor="let card of list">
+<ion-content [fullscreen]="true" *ngIf="list">
+  <ng-container *ngFor="let card of (list | keyvalue)">
     <ion-card *ngIf="card ">
       <ion-card-header>
-        <h4>{{card.name }} {{card.lastname}}</h4>
+        <h4>
+          {{$any(card).value.record.name | titlecase }}
+          {{$any(card).value.record.lastname | titlecase}}
+        </h4>
       </ion-card-header>
       <ion-card-content>
         <ion-grid>
@@ -21,11 +24,13 @@
             <ion-col size="2">
               <ion-icon name="calendar-outline" [size]="'medium'"></ion-icon>
             </ion-col>
-            <ion-col class="date"> {{card.date }} </ion-col>
+            <ion-col class="date">
+              {{$any(card).value.record.date | date:'dd MMMM yy | HH:mm'}}
+            </ion-col>
           </ion-row>
           <ion-row>
             <ion-chip
-              *ngFor="let service of card.services | keyvalue"
+              *ngFor="let service of $any(card).value.record.services | keyvalue"
               color="primary"
               >{{service.key}}</ion-chip
             >

@@ -10,6 +10,7 @@ import {
   getDatabase,
   onValue,
   ref,
+  set,
 } from '@angular/fire/database';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -59,5 +60,12 @@ export class AppointmentService {
       .catch((error) => {
         console.error(error);
       });
+  }
+
+  createRecord(record: any, recordID: string) {
+    const db = getDatabase();
+    set(ref(db, 'records/' + recordID), {
+      record,
+    });
   }
 }

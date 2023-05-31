@@ -21,13 +21,13 @@
     <ion-input
       label="Ad"
       label-placement="floating"
-      fill="outline"
+      fill="solid"
       formControlName="name"
     ></ion-input>
     <ion-input
       label="Soyad"
       label-placement="floating"
-      fill="outline"
+      fill="solid"
       ü
       formControlName="lastname"
     ></ion-input>
@@ -36,7 +36,7 @@
       <ion-input
         value="{{ form.get('date').value | date: 'dd.MM.yyyy | HH:mm' }}"
         id="date"
-        class="ion-text-end"
+        class="ion-text-end date"
         fill="outline"
       ></ion-input>
       <ion-popover trigger="date" size="auto">
@@ -53,12 +53,23 @@
           [multiple]="true"
           formControlName="services"
         >
-          <ion-select-option value="apples">Apples</ion-select-option>
-          <ion-select-option value="oranges">Oranges</ion-select-option>
-          <ion-select-option value="bananas">Bananas</ion-select-option>
+          <ion-select-option
+            *ngFor="let service of (_services | keyvalue)"
+            [value]="service.key"
+          >
+            {{service.value}}
+          </ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
     <ion-button (click)="onSubmit()">Gönder</ion-button>
   </form>
 </ion-content>
+
+<ion-alert
+  [isOpen]="isAlertOpen"
+  header="Uyarı"
+  message="Lütfen bilgileri eksiksiz doldurun!"
+  [buttons]="alertButtons"
+  (didDismiss)="setOpen(false)"
+></ion-alert>

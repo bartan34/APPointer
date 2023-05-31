@@ -5,8 +5,16 @@ export interface Record {
   services: {
     hair: boolean;
     beard: boolean;
-    skim: boolean;
+    skin: boolean;
     manicure: boolean;
     pedicure: boolean;
   };
 }
+
+export const services = {
+  manicure: 'Manikür',
+  hair: 'Saç Kesimi',
+  beard: 'Sakal Kesimi',
+  skin: 'Cilt Bakımı',
+  pedicure: 'Pedikür',
+};

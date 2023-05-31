@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from '../../services/appointment.service';
@@ -9,13 +10,13 @@ import { Record } from '../../interfaces/record';
   styleUrls: ['./list.page.scss'],
 })
 export class ListPage implements OnInit {
-  list: any;
+  list;
 
   constructor(
     private location: Location,
     private appointmentService: AppointmentService
   ) {
-    this.list = [];
+    this.list;
   }
 
   ngOnInit() {
