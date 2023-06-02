@@ -11,7 +11,11 @@ import { Record } from '../../interfaces/record';
 })
 export class ListPage implements OnInit {
   list;
+  isAlertOpen = false;
+  isAlert2Open = false;
 
+  public alertButtons = ['OK'];
+  successStatus: boolean;
   constructor(
     private location: Location,
     private appointmentService: AppointmentService
@@ -26,9 +30,29 @@ export class ListPage implements OnInit {
         console.log(res);
       }
     });
+
+    this.appointmentService.getIsSuccess$().subscribe((res) => {
+      this.successStatus = res;
+    });
   }
 
   goBack() {
     this.location.back();
+  }
+
+  setOpen(isOpen: boolean) {
+    if (isOpen == true) {
+      this.isAlertOpen = isOpen;
+    } else {
+      this.isAlert2Open = false;
+    }
+  }
+
+  onDelete(record: Record, id) {
+    this.appointmentService.deleteRecord(record, id);
+
+    setTimeout(() => {
+      this.setOpen(this.successStatus);
+    }, 100);
   }
 }

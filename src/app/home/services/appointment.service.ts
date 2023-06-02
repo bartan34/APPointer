@@ -10,6 +10,7 @@ import {
   getDatabase,
   onValue,
   ref,
+  remove,
   set,
 } from '@angular/fire/database';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -28,6 +29,7 @@ export class AppointmentService {
   // }
 
   private data$ = new BehaviorSubject<any>(null);
+  private isSuccess$ = new BehaviorSubject<any>(null);
 
   constructor(public database: Database) {
     this.getRecrods();
@@ -35,6 +37,10 @@ export class AppointmentService {
 
   getRecords$() {
     return this.data$.asObservable();
+  }
+
+  getIsSuccess$() {
+    return this.isSuccess$.asObservable();
   }
 
   getRecrods() {
@@ -67,5 +73,16 @@ export class AppointmentService {
     set(ref(db, 'records/' + recordID), {
       record,
     });
+  }
+
+  deleteRecord(record: any, recordID: string) {
+    const db = getDatabase();
+    remove(ref(db, 'records/' + recordID))
+      .then((res) => {
+        this.isSuccess$.next(true);
+      })
+      .catch((res) => {
+        this.isSuccess$.next(false);
+      });
   }
 }
