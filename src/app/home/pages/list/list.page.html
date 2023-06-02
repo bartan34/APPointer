@@ -21,7 +21,12 @@
             </h4>
           </ion-col>
           <ion-col size="2" class="option">
-            <ion-icon name="pencil" [size]="'small'"></ion-icon>
+            <ion-icon
+              name="pencil"
+              [size]="'small'"
+              [routerLink]="['/home/edit/' + $any(card).key]"
+              routerLinkActive="router-link-active"
+            ></ion-icon>
           </ion-col>
           <ion-col size="2" class="option">
             <ion-icon
@@ -55,6 +60,7 @@
     </ion-card>
   </ng-container>
 </ion-content>
+
 <ion-alert
   [isOpen]="isAlertOpen"
   header="Başarılı"

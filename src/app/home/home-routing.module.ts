@@ -11,11 +11,17 @@ const routes: Routes = [
     path: 'list',
     loadChildren: () =>
       import('./pages/list/list.module').then((m) => m.ListPageModule),
-  },  {
-    path: 'add',
-    loadChildren: () => import('./pages/add/add.module').then( m => m.AddPageModule)
   },
-
+  {
+    path: 'add',
+    loadChildren: () =>
+      import('./pages/add/add.module').then((m) => m.AddPageModule),
+  },
+  {
+    path: 'edit/:id',
+    loadChildren: () =>
+      import('./pages/edit/edit.module').then((m) => m.EditPageModule),
+  },
 ];
 
 @NgModule({

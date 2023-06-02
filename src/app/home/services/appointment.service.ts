@@ -12,6 +12,7 @@ import {
   ref,
   remove,
   set,
+  update,
 } from '@angular/fire/database';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -29,6 +30,7 @@ export class AppointmentService {
   // }
 
   private data$ = new BehaviorSubject<any>(null);
+  private record$ = new BehaviorSubject<any>(null);
   private isSuccess$ = new BehaviorSubject<any>(null);
 
   constructor(public database: Database) {
@@ -37,6 +39,10 @@ export class AppointmentService {
 
   getRecords$() {
     return this.data$.asObservable();
+  }
+
+  getRecord$() {
+    return this.record$.asObservable();
   }
 
   getIsSuccess$() {
@@ -53,14 +59,15 @@ export class AppointmentService {
     });
   }
 
-  getRecord(id: string) {
+  getRecord(id: string | null) {
     const dbRef = ref(getDatabase());
     get(child(dbRef, `records/${id}`))
       .then((snapshot) => {
         if (snapshot.exists()) {
-          console.log(snapshot.val());
+          this.record$.next(snapshot.val());
         } else {
           console.log('No data available');
+          this.record$.next(null);
         }
       })
       .catch((error) => {
@@ -73,6 +80,21 @@ export class AppointmentService {
     set(ref(db, 'records/' + recordID), {
       record,
     });
+  }
+
+  updateRecord(record: any, recordID: string | null) {
+    const db = getDatabase();
+    // const updates: any = {};
+    // updates['records/' + recordID] = record;
+    set(ref(db, 'records/' + recordID), {
+      record,
+    })
+      .then((res) => {
+        this.isSuccess$.next(true);
+      })
+      .catch((res) => {
+        this.isSuccess$.next(false);
+      });
   }
 
   deleteRecord(record: any, recordID: string) {
