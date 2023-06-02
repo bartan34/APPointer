@@ -1,7 +1,11 @@
 <ion-header class="ion-no-border">
   <ion-item lines="none">
     <ion-button fill="clear" slot="start" color="light">
-      <ion-icon slot="icon-only" name="menu"></ion-icon>
+      <div class="lang">
+        <span (click)="toggleLanguage()"
+          >{{ currentLang === 'tr' ? 'EN' : 'TR' }}</span
+        >
+      </div>
     </ion-button>
     <ion-avatar slot="end">
       <img src="assets/icon/woman.png" />
@@ -17,7 +21,7 @@
       <ion-col size="6">
         <ion-label>
           <ion-note color="light" class="ion-margin-start">
-            Hoşgeldin
+            {{'home.welcome' | transloco}}
           </ion-note>
           <p>
             <ion-chip color="light">
@@ -51,3 +55,6 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+<div class="logo">
+  <img src="../../../../assets/icon/logo.png" alt="" />
+</div>

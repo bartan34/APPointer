@@ -3,6 +3,7 @@
     <ion-button fill="clear" slot="start" color="light" (click)="goBack()">
       <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
     </ion-button>
+    <ion-text> Randevu Ekle </ion-text>
     <ion-avatar slot="end">
       <img src="assets/icon/woman.png" />
     </ion-avatar>
@@ -65,6 +66,9 @@
     <ion-button (click)="onSubmit()">Gönder</ion-button>
   </form>
 </ion-content>
+<div class="logo">
+  <img src="../../../../assets/icon/logo.png" alt="" />
+</div>
 
 <ion-alert
   [isOpen]="isAlertOpen"

@@ -116,3 +116,18 @@ ion-content {
     }
   }
 }
+
+.lang {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  span {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 0.0375rem;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+  }
+}

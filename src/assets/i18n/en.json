@@ -1,0 +1,38 @@
+{
+  "home": {
+    "welcome": "Welcome",
+    "appointments": "Appointments",
+    "new": "New Appointment"
+  },
+
+  "services": {
+    "beard": "Beard Shave",
+    "hair": "Haircut",
+    "manicure": "Manicure",
+    "pedicure": "Pedicure",
+    "skin": "Skin Care"
+  },
+
+  "add": {
+    "name": "Name",
+    "lastname": "Surname",
+    "date": "Select Date",
+    "services": "Services you want to benefit",
+    "send": "Create",
+    "update": "Update"
+  },
+
+  "buttons": {
+    "cancel": "Close",
+    "ok": "OK"
+  },
+
+  "alerts": {
+    "missing": "Please Complete the Information",
+    "alert": "Warning",
+    "success": "Success",
+    "success_message": "Reservation Updated Successfully",
+    "try_again": "Please try again",
+    "deleted": "Reservation successfully deleted"
+  }
+}

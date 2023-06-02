@@ -1,0 +1,38 @@
+{
+  "home": {
+    "welcome": "Hoşgeldin",
+    "appointments": "Randevular",
+    "new": "Yeni Randevu"
+  },
+
+  "services": {
+    "beard": "Sakal Traşı",
+    "hair": "Saç Kesimi",
+    "manicure": "Manikür",
+    "pedicure": "Pedikür",
+    "skin": "Cilt Bakımı"
+  },
+
+  "add": {
+    "name": "Ad",
+    "lastname": "Soyad",
+    "date": "Tarih Seçiniz",
+    "services": "Almak istediğniz hizmetler",
+    "send": "Oluştur",
+    "update": "Güncelle"
+  },
+
+  "buttons": {
+    "cancel": "Kapat",
+    "ok": "Tamam"
+  },
+
+  "alerts": {
+    "missing": "Lütfen Bilgileri Eksiksiz Doldurun",
+    "alert": "Uyarı",
+    "success": "Başarılı",
+    "success_message": "rezervasyon başarıyla güncellendi",
+    "try_again": "Lütfen tekrar deneyiniz",
+    "deleted": "Rezervasyon başarıyla silindi"
+  }
+}
