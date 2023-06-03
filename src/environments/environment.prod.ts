@@ -1,5 +1,5 @@
 export const environment = {
-  firebaseCon: {
+  firebase: {
     projectId: 'appointer-177e6',
     appId: '1:493119060799:web:33578a1e548620ed76318a',
     databaseURL:
