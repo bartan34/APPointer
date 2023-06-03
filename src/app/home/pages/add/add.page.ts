@@ -5,6 +5,7 @@ import { services } from '../../interfaces/record';
 import { AppointmentService } from '../../services/appointment.service';
 import * as uuid from 'uuid';
 import { Router } from '@angular/router';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-add',
@@ -16,13 +17,14 @@ export class AddPage implements OnInit {
   _services = services;
 
   isAlertOpen = false;
-  public alertButtons = ['OK'];
+  public alertButtons = [''];
 
   constructor(
     private location: Location,
     private fb: FormBuilder,
     private appointmentService: AppointmentService,
-    private router: Router
+    private router: Router,
+    private translocoService: TranslocoService
   ) {}
 
   ngOnInit() {
@@ -32,6 +34,10 @@ export class AddPage implements OnInit {
       date: [null, Validators.required],
       services: [null, Validators.required],
     });
+
+    this.translocoService
+      .selectTranslate('buttons.ok')
+      .subscribe((value) => (this.alertButtons[0] = value));
   }
 
   goBack() {

@@ -2,7 +2,8 @@
   "home": {
     "welcome": "Hoşgeldin",
     "appointments": "Randevular",
-    "new": "Yeni Randevu"
+    "new": "Yeni Randevu",
+    "edit": "Randevuyu Düzenle"
   },
 
   "services": {
@@ -11,6 +12,10 @@
     "manicure": "Manikür",
     "pedicure": "Pedikür",
     "skin": "Cilt Bakımı"
+  },
+
+  "list": {
+    "copied": "Randevu panoya kopyalandı"
   },
 
   "add": {

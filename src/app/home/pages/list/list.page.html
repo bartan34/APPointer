@@ -3,7 +3,7 @@
     <ion-button fill="clear" slot="start" color="light" (click)="goBack()">
       <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
     </ion-button>
-    <ion-text> Randevular </ion-text>
+    <ion-text> {{'home.appointments' | transloco}} </ion-text>
     <ion-avatar slot="end">
       <img src="assets/icon/woman.png" />
     </ion-avatar>
@@ -49,30 +49,46 @@
               {{$any(card).value.record.date | date:'dd/MM/yyyy | HH:mm'}}
             </ion-col>
           </ion-row>
-          <ion-row>
+          <ion-row class="bottom">
             <ion-chip
               *ngFor="let service of $any(card).value.record.services | keyvalue"
               color="primary"
-              >{{service.key}}</ion-chip
+              >{{'services.' + service.key | transloco }}</ion-chip
             >
+            <ion-icon
+              name="copy"
+              [size]="'small'"
+              (click)="onCopy(card.value)"
+            ></ion-icon>
+            <ion-icon
+              name="send"
+              [size]="'small'"
+              (click)="onShare(card.value)"
+            ></ion-icon>
           </ion-row>
         </ion-grid>
       </ion-card-content>
     </ion-card>
   </ng-container>
+  <ion-toast
+    [isOpen]="is_open"
+    [message]="('list.copied' | transloco)"
+    [duration]="3000"
+    class="custom-toast"
+  ></ion-toast>
 </ion-content>
 
 <ion-alert
   [isOpen]="isAlertOpen"
-  header="Başarılı"
-  message="Rezervasyon başarıyla silindi"
+  [header]="('alerts.success' |transloco)"
+  [message]="('alerts.deleted' | transloco)"
   [buttons]="alertButtons"
   (didDismiss)="setOpen(false)"
 ></ion-alert>
 <ion-alert
   [isOpen]="isAlert2Open"
-  header="Hata"
-  message="Lütfen tekrar deneyiniz"
+  [header]="('alerts.alert' |transloco)"
+  [message]="('alerts.try_again' | transloco)"
   [buttons]="alertButtons"
   (didDismiss)="setOpen(false)"
 ></ion-alert>

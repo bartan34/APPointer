@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AddPageRoutingModule } from './add-routing.module';
 
 import { AddPage } from './add.page';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { AddPage } from './add.page';
     IonicModule,
     AddPageRoutingModule,
     ReactiveFormsModule,
+    TranslocoModule,
   ],
   declarations: [AddPage],
 })

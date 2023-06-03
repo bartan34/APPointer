@@ -5,6 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { AppointmentService } from '../../services/appointment.service';
 import * as uuid from 'uuid';
 import { Location } from '@angular/common';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-edit',
@@ -19,7 +20,7 @@ export class EditPage implements OnInit {
   isAlertOpen = false;
   isAlertOpen2 = false;
 
-  public alertButtons = ['OK'];
+  public alertButtons = [''];
   successStatus: boolean = false;
 
   constructor(
@@ -27,7 +28,8 @@ export class EditPage implements OnInit {
     private location: Location,
     private fb: FormBuilder,
     private appointmentService: AppointmentService,
-    private router: Router
+    private router: Router,
+    private translocoService: TranslocoService
   ) {
     this.id = this.route.snapshot.paramMap.get('id');
   }
@@ -49,6 +51,10 @@ export class EditPage implements OnInit {
     this.appointmentService.getIsSuccess$().subscribe((res) => {
       this.successStatus = res;
     });
+
+    this.translocoService
+      .selectTranslate('buttons.ok')
+      .subscribe((value) => (this.alertButtons[0] = value));
   }
 
   goBack() {

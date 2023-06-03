@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EditPageRoutingModule } from './edit-routing.module';
 
 import { EditPage } from './edit.page';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { EditPage } from './edit.page';
     IonicModule,
     EditPageRoutingModule,
     ReactiveFormsModule,
+    TranslocoModule,
   ],
   declarations: [EditPage],
 })

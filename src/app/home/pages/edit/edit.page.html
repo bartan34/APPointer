@@ -3,7 +3,7 @@
     <ion-button fill="clear" slot="start" color="light" (click)="goBack()">
       <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
     </ion-button>
-    <ion-text> Randevuyu Düzenle </ion-text>
+    <ion-text> {{'home.new' | transloco}} </ion-text>
     <ion-avatar slot="end">
       <img src="assets/icon/woman.png" />
     </ion-avatar>
@@ -20,20 +20,20 @@
   "
   >
     <ion-input
-      label="Ad"
+      [label]="('add.name' | transloco)"
       label-placement="floating"
       fill="outline"
       formControlName="name"
     ></ion-input>
     <ion-input
-      label="Soyad"
+      [label]="('add.lastname' | transloco)"
       label-placement="floating"
       fill="outline"
       ü
       formControlName="lastname"
     ></ion-input>
     <ion-item>
-      <ion-label>Pick date</ion-label>
+      <ion-label> {{'add.date' |transloco}} </ion-label>
       <ion-input
         value="{{ form.get('date').value | date: 'dd.MM.yyyy | HH:mm' }}"
         id="date"
@@ -50,7 +50,7 @@
       <ion-item>
         <ion-select
           aria-label="Services"
-          placeholder="Select all fruits that apply"
+          [placeholder]="('add.services' | transloco)"
           [multiple]="true"
           formControlName="services"
         >
@@ -58,30 +58,30 @@
             *ngFor="let service of (_services | keyvalue)"
             [value]="service.key"
           >
-            {{service.value}}
+            {{"services." + service.key | transloco }}
           </ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
-    <ion-button (click)="onSubmit()">Güncelle</ion-button>
+    <ion-button (click)="onSubmit()">{{'add.update' |transloco}}</ion-button>
   </form>
 </ion-content>
 
-<div class="logo">
+<div class="logo" routerLink="/home">
   <img src="../../../../assets/icon/logo.png" alt="" />
 </div>
 
 <ion-alert
   [isOpen]="isAlertOpen"
-  header="Uyarı"
-  message="Lütfen bilgileri eksiksiz doldurun!"
+  [header]="('alerts.alert' | transloco)"
+  [message]="('alerts.missing' | transloco)"
   [buttons]="alertButtons"
   (didDismiss)="setOpen(false)"
 ></ion-alert>
 <ion-alert
   [isOpen]="isAlertOpen2"
-  header="Başarılı"
-  message="Rezervasyon başarıyla güncellendi"
+  [header]="('alerts.success' | transloco)"
+  [message]="('alerts.success_message' | transloco)"
   [buttons]="alertButtons"
   (didDismiss)="onComplete()"
 ></ion-alert>

@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ListPageRoutingModule } from './list-routing.module';
 
 import { ListPage } from './list.page';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListPageRoutingModule
+    ListPageRoutingModule,
+    TranslocoModule,
   ],
-  declarations: [ListPage]
+  declarations: [ListPage],
 })
 export class ListPageModule {}

@@ -2,7 +2,8 @@
   "home": {
     "welcome": "Welcome",
     "appointments": "Appointments",
-    "new": "New Appointment"
+    "new": "New Appointment",
+    "edit": "Edit Appointment"
   },
 
   "services": {
@@ -11,6 +12,10 @@
     "manicure": "Manicure",
     "pedicure": "Pedicure",
     "skin": "Skin Care"
+  },
+
+  "list": {
+    "copied": "Appointment copied to the clipboard"
   },
 
   "add": {
